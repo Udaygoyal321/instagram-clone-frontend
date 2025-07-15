@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // Backend base URL
+  baseURL: "https://instagram-clone-backend-nd23.onrender.com", // Backend base URL
 });
 
 // attach token to each request
