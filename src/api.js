@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.REACT_APP_API_URL, // ✅ Use env variable now
-  withCredentials: true, // Optional, for cookies/auth
+  baseURL: process.env.REACT_APP_API_URL, // ✅ CRA syntax
+  withCredentials: true,
 });
 
 // ✅ Attach token to each request
@@ -12,7 +12,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// ✅ Helper functions for posts
+// ✅ Post helpers
 export const likePost = (postId) => api.post(`/posts/${postId}/like`);
 export const unlikePost = (postId) => api.post(`/posts/${postId}/unlike`);
 export const toggleLikePost = (postId) => api.put(`/posts/${postId}/like`);
